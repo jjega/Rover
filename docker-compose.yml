@@ -1,0 +1,11 @@
+version: '3'
+services:
+  php:
+    build: . #build from Dockerfile
+    volumes:
+      - ./:/var/www/html #src and tests shared to container
+      - ~/.composer/cache:/root/.composer/cache
+    environment:
+      TZ: Europe/Madrid
+      XDEBUG_CONFIG: "remote_host=192.168.0.83 remote_port=9005 remote_enable=On"
+      PHP_IDE_CONFIG: "serverName=phpunit"
