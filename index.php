@@ -29,7 +29,7 @@ for($i=3;$i<$last_key;$i+=4) {
     if (preg_match('#[0-9]+#', $argv[$i]) &&
         preg_match('#[0-9]+#', $argv[$i + 1]) &&
         preg_match('#[NEWS]+#', $argv[$i + 2])) {
-        $oRover = new Rover($argv[$i], $argv[$i + 1], $argv[$i + 2]);
+        $oRover = new Rover($grid, $argv[$i], $argv[$i + 1], $argv[$i + 2]);
         echo 'origin:' . $oRover->getPosition() . "\n";
     }
 

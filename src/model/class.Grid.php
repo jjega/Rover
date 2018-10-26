@@ -11,14 +11,14 @@ namespace ProjectNasa;
 class Grid
 {
     // Grid size Can only be R+ representing absciss and ordonate max value
-    private $_top_x;
-    private $_top_y;
+    private $top_x;
+    private $top_y;
 
     // If the absciss and ordonate lower value
-    private $_ground_x;
-    private $_ground_y;
+    private $ground_x;
+    private $ground_y;
 
-    private static $_instance;
+    private static $instance;
 
     /**
      * Grid constructor. Part of mars which will be visited. Because it is unique we need to create a Singleton
@@ -29,16 +29,16 @@ class Grid
      */
     private function __construct(int $top_x, int $top_y, int $ground_x, int $ground_y)
     {
-        $this->_top_x = $top_x;
-        $this->_top_y = $top_y;
-        $this->_ground_x = $ground_x;
-        $this->_ground_y = $ground_y;
+        $this->top_x = $top_x;
+        $this->top_y = $top_y;
+        $this->ground_x = $ground_x;
+        $this->ground_y = $ground_y;
     }
 
     /**
      * Returning the max value according to $axe
      * @param $axe x|y
-     * @return integer $_top_x|$_top_y
+     * @return integer $top_x|$top_y
      */
     public function getTop($axe) {
         return $this->{'_top_' . $axe};
@@ -62,15 +62,15 @@ class Grid
      * @return bool|Grid intance of Grid
      */
     public static function getInstance(int $top_x = null, int $top_y = null, $ground_x = 0, $ground_y = 0) {
-        if (is_null(self::$_instance)) {
+        if (is_null(self::$instance)) {
             try {
-                self::$_instance = new Grid($top_x, $top_y, intval($ground_x), intval($ground_y));
+                self::$instance = new Grid($top_x, $top_y, intval($ground_x), intval($ground_y));
             } catch (\Exception $e) {
                 print_r($e->getMessage());
                 return false;
             }
         }
 
-        return self::$_instance;
+        return self::$instance;
     }
 }

@@ -26,6 +26,11 @@
   "bin": [
     "phpunit"
   ],
+  "autoload": {
+    "psr-4": {
+      "projectnasa": {"ProjectNasa\\": "src/"}
+    }
+  },
   "config": {
     "platform": {}
   }

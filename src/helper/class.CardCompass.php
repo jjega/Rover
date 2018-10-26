@@ -11,13 +11,13 @@ namespace ProjectNasa;
 
 class CardCompass
 {
-    private $_direction;
+    private $direction;
 
     /**
      * Constant value helping to transform cardinal point into coordonate
      * @var array
      */
-    private static $_TAB_DIR_VAL = array(
+    private static $TAB_DIR_VAL = array(
         'N' => array('target'=>'y', 'value'=>1),
         'E' => array('target'=>'x', 'value'=>1),
         'S' => array('target'=>'y', 'value'=>-1),
@@ -30,8 +30,8 @@ class CardCompass
      */
     public function setDirection($dir)
     {
-        while(key(self::$_TAB_DIR_VAL) && (key(self::$_TAB_DIR_VAL) !== $dir)) {
-            next(self::$_TAB_DIR_VAL);
+        while(key(self::$TAB_DIR_VAL) && (key(self::$TAB_DIR_VAL) !== $dir)) {
+            next(self::$TAB_DIR_VAL);
         }
     }
 
@@ -41,7 +41,7 @@ class CardCompass
      */
     public function getDirectionLabel()
     {
-        return key(self::$_TAB_DIR_VAL);
+        return key(self::$TAB_DIR_VAL);
     }
 
     /**
@@ -50,7 +50,7 @@ class CardCompass
      */
     public function getDirectionInfo()
     {
-        return current(self::$_TAB_DIR_VAL);
+        return current(self::$TAB_DIR_VAL);
     }
 
     /**
@@ -59,12 +59,12 @@ class CardCompass
      */
     public function turnRight()
     {
-        next(self::$_TAB_DIR_VAL);
-        if (!current(self::$_TAB_DIR_VAL)) {
-            reset(self::$_TAB_DIR_VAL);
+        next(self::$TAB_DIR_VAL);
+        if (!current(self::$TAB_DIR_VAL)) {
+            reset(self::$TAB_DIR_VAL);
         }
 
-        return current(self::$_TAB_DIR_VAL);
+        return current(self::$TAB_DIR_VAL);
     }
 
     /**
@@ -73,11 +73,11 @@ class CardCompass
      */
     public function turnLeft()
     {
-        prev(self::$_TAB_DIR_VAL);
-        if (!current(self::$_TAB_DIR_VAL)) {
-            end(self::$_TAB_DIR_VAL);
+        prev(self::$TAB_DIR_VAL);
+        if (!current(self::$TAB_DIR_VAL)) {
+            end(self::$TAB_DIR_VAL);
         }
 
-        return current(self::$_TAB_DIR_VAL);
+        return current(self::$TAB_DIR_VAL);
     }
 }
