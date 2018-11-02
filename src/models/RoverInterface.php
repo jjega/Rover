@@ -13,5 +13,10 @@ interface RoverInterface
 {
     function  move();
     function turn(string $rotate);
+
+    /**
+     * Return Rover position
+     * @return string
+     */
     function getPosition();
 }

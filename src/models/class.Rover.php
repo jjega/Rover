@@ -16,40 +16,19 @@ class Rover implements RoverInterface
     private $speed;
     private $grid;
 
-    public function __construct($greed, $x, $y, $dir, $speed)
+    public function __construct(Grid $grid, CardCompass $card_compass, int $x, int $y, string $dir, int $speed)
     {
         $this->x = $x;
         $this->y = $y;
-        $this->direction = new CardCompass();
+        $this->direction = $card_compass;
         $this->direction->setDirection($dir);
         $this->speed = $speed;
-        $this->grid = $greed;
+        $this->grid = $grid;
     }
 
-    /**
-     * Return Rover position
-     * @return string
-     */
     public function getPosition()
     {
         return "{$this->x};{$this->y};{$this->direction->getDirectionLabel()}";
-    }
-
-    /**
-     * @param $action have to repect this rule /[MLR]/i
-     * @return void
-     */
-    public function doAction($action)
-    {
-        switch ($action) {
-            case 'R':
-            case 'L':
-                $this->turn($action);
-                break;
-            case 'M':
-                $this->move();
-                break;
-        }
     }
 
     // Private

@@ -8,6 +8,8 @@
 
 namespace App\Controller;
 
+use ProjectNasa\FactoryRover;
+
 /**
  * Class DefaultController
  * @package App\Controller
@@ -36,7 +38,7 @@ class DefaultController
             if (preg_match('#[MRL]+#i', $argv[$i + 3])) {
                 $tab_cmd = str_split($argv[$i + 3]);
                 foreach ($tab_cmd as $cmd) {
-                    $oRover->doAction($cmd);
+                    FactoryRover::doAction($oRover, $cmd);
                 }
                 $message = $oRover->getPosition() . "\n";
             } else {
