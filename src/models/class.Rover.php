@@ -8,7 +8,7 @@
 
 namespace ProjectNasa;
 
-class Rover
+class Rover implements RoverInterface
 {
     private $x;
     private $y;
@@ -16,7 +16,7 @@ class Rover
     private $speed;
     private $grid;
 
-    public function __construct($greed, $x, $y, $dir, $speed = 1)
+    public function __construct($greed, $x, $y, $dir, $speed)
     {
         $this->x = $x;
         $this->y = $y;
@@ -57,7 +57,7 @@ class Rover
      * @param $rotate
      * @return void
      */
-    private function _turn($rotate)
+    public function turn(string $rotate)
     {
         if ($rotate === 'R') {
             $this->direction->turnRight();
@@ -70,7 +70,7 @@ class Rover
      * Applying wich has been settings up
      * @return void
      */
-    private function move()
+    public function move()
     {
         $direction_info = $this->direction->getDirectionInfo();
         switch ($direction_info['target']) {

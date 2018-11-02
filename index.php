@@ -6,9 +6,9 @@
  * Time: 13:57
  */
 
-include 'class/class.CardCompass.php';
-include 'class/class.Grid.php';
-include 'class/class.Rover.php';
+include 'class/CardCompass.php';
+include 'class/Grid.php';
+include 'class/Rover.php';
 
 
 use ProjectNasa\Rover;
